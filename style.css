@@ -1,0 +1,41 @@
+/* 
+Layout
+- Mobile: 375px
+- Desktop: 1440px 
+*/
+
+:root {
+  /* Colors */
+  --clr-primary-gradient: linear-gradient(
+    hsl(249, 99%, 64%),
+    hsl(278, 94%, 30%)
+  ); /*active input border*/
+  --clr-error: hsl(0, 100%, 66%); /*(input errors)*/
+  --neutral-0: hsl(0, 0%, 100%);
+  --neutral-400: hsl(270, 3%, 87%);
+  --neutral-500: hsl(279, 6%, 55%);
+  --neutral-600: hsl(278, 68%, 11%);
+
+  /* Typography */
+  --font-size: 1.125rem;
+  --font-family: 'Space Grotesk', sans-serif;
+  --font-eights: 500;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+main {
+}
+
+.card {
+}

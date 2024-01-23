@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive card details form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="card">
+        <div class="card-preview" aria-hidden="true">
+          <!-- <h2 class="sr-only">Card Preview</h2> -->
+          <div class="card-preview__number">0000 0000 0000 0000 </div>
+          <div class="card-preview__holder">Jane Appleseed </div>
+          <div class="card-preview__exp">00/00 </div>
+          <div class="card-preview__cvc">000</div>
+        </div>
+
+        <form class="card-form" action="#">
+          <h1 class="sr-only">Provide Your Credit Card Details</h1>
+          <label for="card-holder">Cardholder Name</label>
+          <input
+            id="card-holder"
+            name="card-holder"
+            placeholder="e.g. Jane Appleseed"
+            autocomplete="cc-name"
+          />
+
+          <label for="card-number">Card Number</label>
+          <input
+            id="card-number"
+            name="card-number"
+            placeholder="1234 5678 9123 0000"
+            autocomplete="cc-number"
+          />
+
+          <div class="card-verification">
+            <label aria-hidden="true">Exp. Date (MM/YY)</label>
+            <input
+              name="card-expiry-month"
+              type="tel"
+              placeholder="MM"
+              pattern="\d{2}"
+              aria-label="Enter the Expiration Month of the Card(MM)"
+              autocomplete="cc-exp-month"
+            />
+            <input
+              name="card-expiry-year"
+              type="tel"
+              placeholder="YY"
+              pattern="\d{2}"
+              aria-label="Enter the Expiration Year of the Card(YY)"
+              autocomplete="cc-exp-year"
+            />
+
+            <label for="card-cvc">CVC</label>
+            <input
+              id="card-cvc"
+              name="card-cvc"
+              type="password"
+              pattern="\d{3,4}"
+              placeholder="e.g. 123"
+              autocomplete="cc-csc"
+            />
+          </div>
+          <button>Confirm</button>
+        </form>
+
+        <div class="card-complete">
+          <h1 class="sr-only">Card Complete</h1>
+          <h2>Thank you!</h2>
+          <p>
+            We've added your card details
+          </p> 
+          <button>Continue</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
