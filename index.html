@@ -18,74 +18,130 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" type="module"></script>
   </head>
   <body>
     <main>
       <div class="card">
-        <div class="card-preview" aria-hidden="true">
-          <!-- <h2 class="sr-only">Card Preview</h2> -->
-          <div class="card-preview__number">0000 0000 0000 0000 </div>
-          <div class="card-preview__holder">Jane Appleseed </div>
-          <div class="card-preview__exp">00/00 </div>
-          <div class="card-preview__cvc">000</div>
+        <div class="preview-wrapper" aria-hidden="true">
+          <div class="preview-wrapper-todo">
+            <!-- <h2 class="sr-only">Card Preview</h2> -->
+            <div class="preview preview__back">
+              <div class="preview__cvc">000</div>
+            </div>
+            <div class="preview preview__front">
+              <img class="preview__logo" src="images/card-logo.svg" alt="" />
+              <div class="preview__number f-heading-xl">
+                0000 0000 0000 0000
+              </div>
+              <div class="preview__info f-body-l">
+                <div>Jane Appleseed</div>
+                <div class="preview__exp">00/00</div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <form class="card-form" action="#">
+        <form id="card-form" class="card-form" action="send" novalidate>
           <h1 class="sr-only">Provide Your Credit Card Details</h1>
-          <label for="card-holder">Cardholder Name</label>
-          <input
-            id="card-holder"
-            name="card-holder"
-            placeholder="e.g. Jane Appleseed"
-            autocomplete="cc-name"
-          />
-
-          <label for="card-number">Card Number</label>
-          <input
-            id="card-number"
-            name="card-number"
-            placeholder="1234 5678 9123 0000"
-            autocomplete="cc-number"
-          />
-
-          <div class="card-verification">
-            <label aria-hidden="true">Exp. Date (MM/YY)</label>
-            <input
-              name="card-expiry-month"
-              type="tel"
-              placeholder="MM"
-              pattern="\d{2}"
-              aria-label="Enter the Expiration Month of the Card(MM)"
-              autocomplete="cc-exp-month"
-            />
-            <input
-              name="card-expiry-year"
-              type="tel"
-              placeholder="YY"
-              pattern="\d{2}"
-              aria-label="Enter the Expiration Year of the Card(YY)"
-              autocomplete="cc-exp-year"
-            />
-
-            <label for="card-cvc">CVC</label>
-            <input
-              id="card-cvc"
-              name="card-cvc"
-              type="password"
-              pattern="\d{3,4}"
-              placeholder="e.g. 123"
-              autocomplete="cc-csc"
-            />
+          <div class="card-form-fields">
+            <div class="card-field">
+              <label class="f-body-m card-label" for="card-holder"
+                >Cardholder Name</label
+              >
+              <input
+                id="card-holder"
+                class="f-heading-l card-field"
+                name="card-holder"
+                required
+                placeholder="e.g. Jane Appleseed"
+                autocomplete="cc-name"
+              />
+              <span class="card-error f-body-s" role="alert">Cardholder Name is required</span>
+            </div>
+            <div class="card-field">
+              <label class="f-body-m card-label" for="card-number"
+                >Card Number</label
+              >
+              <input
+                id="card-number"
+                class="f-heading-l card-field"
+                name="card-number"
+                type="text"
+                required
+                pattern="\d{4} \d{4} \d{4} \d{4}"
+                placeholder="e.g. 1234 5678 9123 0000"
+                maxlength="19"
+                minlength="19"
+                autocomplete="cc-number"
+              />
+              <span class="card-error f-body-s" role="alert">Wrong card number</span>
+            </div>
+            <div class="card-verification">
+              <div class="card-field">
+                <label class="f-body-m card-label" aria-hidden="true"
+                  >Exp. Date (MM/YY)</label
+                >
+                <div class="card-expiry">
+                  <input
+                    class="f-heading-l card-expiry-month"
+                    name="card-expiry-month"
+                    type="text"
+                    inputmode="numeric"
+                    placeholder="MM"
+                    required
+                    maxlength="2"
+                    pattern="(0[1-9])|1[1-2]"
+                    aria-label="Enter the Expiration Month of the Card(MM)"
+                    autocomplete="cc-exp-month"
+                  />
+                  <input
+                    class="f-heading-l"
+                    name="card-expiry-year"
+                    type="text"
+                    inputmode="numeric"
+                    placeholder="YY"
+                    required
+                    maxlength="2"
+                    pattern="\d{2}"
+                    aria-label="Enter the Expiration Year of the Card(YY)"
+                    autocomplete="cc-exp-year"
+                  />
+                  <span class="card-error f-body-s" role="alert" 
+                    aria-label="Validation Error: expiration month and year cannot be empty">
+                    Can't be blank
+                  </span>
+                </div>
+              </div>
+              <div class="card-field">
+                <label class="f-body-m" for="card-cvc">CVC</label>
+                <input
+                  class="f-heading-l"
+                  id="card-cvc"
+                  name="card-cvc"
+                  type="text"
+                  inputmode="numeric"
+                  required
+                  maxlength="4"
+                  pattern="\d{3,4}"
+                  placeholder="e.g. 123"
+                  autocomplete="cc-csc"
+                />
+                <span class="card-error f-body-s" role="alert" 
+                    aria-describedby="card-cvc">
+                    Can't be blank
+                  </span>
+              </div>
+            </div>
           </div>
-          <button>Confirm</button>
+          <button type="submit" class="f-heading-l button">Confirm</button>
         </form>
 
         <div class="card-complete">
           <h1 class="sr-only">Card Complete</h1>
           <h2>Thank you!</h2>
-          <p>
-            We've added your card details
-          </p> 
+          <p>We've added your card details</p>
           <button>Continue</button>
         </div>
       </div>
