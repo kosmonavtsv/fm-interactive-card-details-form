@@ -26,7 +26,7 @@
   --preview-width:17.875rem;
 }
 
-@media screen and (min-width: 7.25rem) {
+@media screen and (min-width: 70rem) {
   :root {
     --fs-heading-xl: 1.75rem;
     --fs-body-l: .875rem;
@@ -334,7 +334,7 @@ input:focus {
   }
 }
 
-@media screen and (min-width: 7.25rem) {
+@media screen and (min-width: 70rem) {
   .preview-content-wrapper {
     width: 33.8125rem;
     height: 32.9375rem;
